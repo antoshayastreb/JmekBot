@@ -6,7 +6,7 @@ authors = ["antoshayastreb <nedanon@outlook.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 loguru = "^0.7.0"
 aiogram = "^2.25.1"
 aiohttp = "^3.8.5"
