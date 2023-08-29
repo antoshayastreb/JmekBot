@@ -4,6 +4,7 @@ from jmekbot.loader import dp
 from loguru import logger
 
 from jmekbot.commands import set_default_commands
+from jmekbot.background import keep_alive
 
 async def startup(dp: Dispatcher) -> None:
     await set_default_commands(dp)
@@ -20,5 +21,5 @@ if __name__ == '__main__':
         rotation='30 KB',
         compression='zip',
     )
-
+    keep_alive()
     executor.start_polling(dp, skip_updates=True, on_startup=startup, on_shutdown=shutdown)

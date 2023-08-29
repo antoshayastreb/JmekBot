@@ -11,6 +11,7 @@ loguru = "^0.7.0"
 aiogram = "^2.25.1"
 aiohttp = "^3.8.5"
 beautifulsoup4 = "^4.12.2"
+flask = "^2.3.3"
 
 
 [build-system]
