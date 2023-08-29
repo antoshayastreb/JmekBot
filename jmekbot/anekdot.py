@@ -20,13 +20,16 @@ class AnekdotRuScraper:
         soup = BeautifulSoup(html, 'html.parser')
 
         anekdots = []
-
+        
         for div in soup.find_all('div', {'class': 'topicbox'}):
             # Пропустим блоки с картинками
             if div.find('img') is not None:
                 continue
+            
+            main_text = div.find_all('div', {'class': 'text'})
 
-            text = div.get_text().strip()
+            if main_text:
+                text = main_text[0].get_text().strip()
 
             if text:
 

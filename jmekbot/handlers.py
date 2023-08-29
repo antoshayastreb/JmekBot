@@ -2,16 +2,16 @@ import random
 from aiogram import types
 
 from jmekbot.loader import bot, dp
-from jmekbot.responses import Responses
+from jmekbot.responses import Responses, AnekdotsEmpty
 from jmekbot.anekdot import AnekdotRuScraper
 
-@dp.message_handler(commands=['anekdot'])
+@dp.message_handler(commands=['anekdot'], commands_prefix='/')
 async def handle_anekdot_command(message: types.Message) -> None:
     anekdots = await AnekdotRuScraper.get_anekdots()
     if anekdots:
         await message.reply(random.choice(anekdots))
     else:
-        await message.reply('Анекдоты сдохли, потом почитаем')
+        await message.reply(random.choice(AnekdotsEmpty))
 
 
 @dp.message_handler(
