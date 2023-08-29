@@ -35,7 +35,9 @@ async def group_text_handler(message: types.Message) -> None:
     """
     Обработчик групповых сообщений
     """
+    me = await bot.get_me()
     text = message.text.lower()
+    text = text.replace(me.mention, '').strip()
     if text in Responses:
         response = random.choice(Responses[text])
         await message.reply(response)
