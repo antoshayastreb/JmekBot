@@ -27,17 +27,25 @@ async def pm_text_handler(message: types.Message) -> None:
         response = random.choice(Responses[text])
         await bot.send_message(message.chat.id, response)
 
-@dp.message_handler(
-    lambda message: message.chat.type == 'group',
-    content_types=types.ContentType.TEXT
-)
+# @dp.message_handler(
+#     lambda message: message.chat.type == 'group',
+#     content_types=types.ContentType.TEXT
+# )
+# async def group_text_handler(message: types.Message) -> None:
+#     """
+#     Обработчик групповых сообщений
+#     """
+#     me = await bot.get_me()
+#     text = message.text.lower()
+#     text = text.replace(me.mention, '').strip()
+#     if text in Responses:
+#         response = random.choice(Responses[text])
+#         await message.reply(response)
+
+@dp.message_handler(chat_type=types.ChatType.GROUP)
 async def group_text_handler(message: types.Message) -> None:
-    """
-    Обработчик групповых сообщений
-    """
-    me = await bot.get_me()
     text = message.text.lower()
-    text = text.replace(me.mention, '').strip()
+    text = text.strip()
     if text in Responses:
         response = random.choice(Responses[text])
         await message.reply(response)
