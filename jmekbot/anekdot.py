@@ -9,7 +9,7 @@ class AnekdotRuScraper:
 
     @staticmethod
     async def fetch_page():
-        url = 'https://www.anekdot.ru/'
+        url = 'https://www.anekdot.ru/random/anekdot/'
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
                 return await response.text()
