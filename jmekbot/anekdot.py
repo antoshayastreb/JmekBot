@@ -28,6 +28,8 @@ class AnekdotRuScraper:
             
             main_text = div.find_all('div', {'class': 'text'})
 
+            text = None
+
             if main_text:
                 text = main_text[0].get_text().strip()
 
