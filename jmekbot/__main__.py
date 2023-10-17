@@ -21,5 +21,5 @@ if __name__ == '__main__':
         rotation='30 KB',
         compression='zip',
     )
-    keep_alive()
+    #keep_alive()
     executor.start_polling(dp, skip_updates=True, on_startup=startup, on_shutdown=shutdown)
