@@ -11,8 +11,8 @@
             "module": "jmekbot",
             "justMyCode": true,
             "env": {
-                "BOT_TOKEN" : "6588667445:AAFQhUCpHBQHRTAdnb-a8oLFfG9EwizpJ1M"
+                "BOT_TOKEN" : ""
             }
         }
     ]
-}
+}   
