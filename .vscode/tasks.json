@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build and Export Docker Image",
+        "type": "shell",
+        "command": "docker build -t jmekbot:latest . ; if ($?) { docker save -o ${cwd}\\jmekbot.tar jmekbot:latest }",
+        "problemMatcher": [],
+        "options": {
+            "shell": {
+                "executable": "powershell.exe",
+                "args": ["-Command"]
+            }
+        }
+      }
+    ]
+}
