@@ -1,9 +1,3 @@
-from aiogram import Dispatcher, types
+from aiogram.types.bot_command import BotCommand
 
-
-async def set_default_commands(dp: Dispatcher) -> None:
-    await dp.bot.set_my_commands(
-        [
-            types.BotCommand("anekdot", "Случайный анекдот с 'anekdot.ru'"),
-        ]
-    )
+anekdot_command = BotCommand(command='anekdot', description='Случайный анекдот с "anekdot.ru"')
