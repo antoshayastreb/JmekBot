@@ -6,16 +6,17 @@ from aiogram.types import Message
 from jmekbot.middlewares.random import RandomMiddleware
 
 router = Router()
-router.message.middleware(RandomMiddleware())
+router.message.middleware(RandomMiddleware(0.1))
 
 @router.message(
     and_f(
-        (F.text.len() < 30),
-        (F.text.lower() != 'пизда'),
-        invert_f(F.text.contains('пизда')),
+        (F.text.strip().len() < 30),
+        # (F.text.lower() != 'пизда'),
+        # invert_f(F.text.contains('пизда')),
         or_f(
-            (F.text.lower() == 'да'),
-            F.text.endswith('да')
+            (F.text.strip().lower() == 'да'),
+            #F.text.endswith('да')
+            (F.text.func(lambda text: text.strip().split()[-1].lower() == "да"))
         )
     )
 )
