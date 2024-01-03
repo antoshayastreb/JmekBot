@@ -130,3 +130,6 @@ dmypy.json
 
 # Docker image archive
 *.tar
+
+# VSCode config folder
+.vscode/
